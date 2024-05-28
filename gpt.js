@@ -1,9 +1,4 @@
-[rewrite_local]
-# > GPT4 Script
-^https:\/\/chatgpt\.com\/backend-api\/accounts\/check\/v4-2023-04-27\?timezone_offset_min=-420$ url script-response-body gpt4.js
-[mitm]
-hostname = chatgpt.com
-// Script to modify the response for specified URLs
+
 
 var body = $response.body;
 var objc = JSON.parse(body);
