@@ -1,24 +1,14 @@
 [rewrite_local]
 # > GPT4 Script
 ^https:\/\/chatgpt\.com\/backend-api\/accounts\/check\/v4-2023-04-27\?timezone_offset_min=-420$ url script-response-body gpt4.js
-^https:\/\/chatgpt\.com\/public-api\/conversation_limit$ url script-response-body gpt4.js
 [MITM]
 hostname = chatgpt.com
 // Script to modify the response for specified URLs
 
-// Check if the URL matches one of the specified patterns
-const url1 = /^https:\/\/chatgpt\.com\/backend-api\/accounts\/check\/v4-2023-04-27\?timezone_offset_min=-420$/;
-const url2 = /^https:\/\/chatgpt\.com\/public-api\/conversation_limit$/;
+var body = $response.body;
+var objc = JSON.parse(body);
 
-// Function to handle modifying the response
-function modifyResponse(body) {
-    // Parse the JSON response
-    let response = JSON.parse(body);
-
-    // Check the URL and modify the response accordingly
-    if (url1.test($request.url)) {
-        response = 
-          {
+objc = {
     "accounts": {
         "bebdb533-2ab5-42d8-86d5-88b13bc8459a": {
             "account": {
@@ -185,26 +175,4 @@ function modifyResponse(body) {
         "bebdb533-2ab5-42d8-86d5-88b13bc8459a"
     ]
 }
-        };
-    } else if (url2.test($request.url)) {
-        response = 
-          {
-    "message_cap": 99999999.0,
-    "message_cap_window": 999999999999999.0,
-    "message_disclaimer": {
-        "textarea": "Crack By ShopAccVanQuoc.",
-        "model-switcher": "ĐẸP TRAI SỐ 2 K AI SỐ 1.\n\nVui lòng kiểm tra lại sớm."
-    }
-}
-    }
 
-    // Return the modified response as a JSON string
-    return JSON.stringify(response);
-}
-
-// Main entry point
-(function() {
-    let body = $response.body;
-    body = modifyResponse(body);
-    $done({ body });
-})();
