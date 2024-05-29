@@ -1,9 +1,6 @@
+var obj = JSON.parse($response.body);
 
-
-var body = $response.body;
-var objc = JSON.parse(body);
-
-objc = 
+obj = 
 {
     "accounts": {
         "f6885355-edd2-4a02-b75e-aa1032238df2": {
@@ -15,15 +12,15 @@ objc =
                         "has_customer_object": true
                     },
                     "b001": {
-                        "has_transaction_history": false
+                        "has_transaction_history": true
                     },
                     "c001": {
-                        "has_transaction_history": false
+                        "has_transaction_history": true
                     }
                 },
                 "account_id": "f6885355-edd2-4a02-b75e-aa1032238df2",
                 "organization_id": null,
-                "is_most_recent_expired_subscription_gratis": false,
+                "is_most_recent_expired_subscription_gratis": true,
                 "has_previously_paid_subscription": true,
                 "name": null,
                 "profile_picture_id": null,
@@ -64,7 +61,7 @@ objc =
                 "subscription_id": "8b397040-7c3e-4fee-b8df-2d0f37a34831",
                 "has_active_subscription": true,
                 "subscription_plan": "chatgptplusplan",
-                "expires_at": "2099-06-11T23:22:29+00:00",
+                "expires_at": "2024-06-29T23:22:29+00:00",
                 "billing_period": null
             },
             "rate_limits": [],
@@ -73,7 +70,7 @@ objc =
                 "purchase_origin_platform": "chatgpt_web",
                 "will_renew": true
             },
-            "is_eligible_for_yearly_plus_subscription": false
+            "is_eligible_for_yearly_plus_subscription": truetrue
         },
         "default": {
             "account": {
@@ -84,10 +81,10 @@ objc =
                         "has_customer_object": true
                     },
                     "b001": {
-                        "has_transaction_history": false
+                        "has_transaction_history": true
                     },
                     "c001": {
-                        "has_transaction_history": false
+                        "has_transaction_history": true
                     }
                 },
                 "account_id": "f6885355-edd2-4a02-b75e-aa1032238df2",
@@ -150,5 +147,4 @@ objc =
     ]
 }
 
-body = JSON.stringify(obj);
-$done({body});
+$done({body: JSON.stringify(obj)});
