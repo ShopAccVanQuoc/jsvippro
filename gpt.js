@@ -1,7 +1,6 @@
 var obj = JSON.parse($response.body);
 
-obj = 
-{
+obj = {
     "accounts": {
         "f6885355-edd2-4a02-b75e-aa1032238df2": {
             "account": {
@@ -70,7 +69,7 @@ obj =
                 "purchase_origin_platform": "chatgpt_web",
                 "will_renew": true
             },
-            "is_eligible_for_yearly_plus_subscription": truetrue
+            "is_eligible_for_yearly_plus_subscription": true
         },
         "default": {
             "account": {
