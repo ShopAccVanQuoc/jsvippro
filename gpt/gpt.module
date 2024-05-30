@@ -1,0 +1,18 @@
+#!name=ChatGPT WEB
+#!desc=Code By ShopAccVanQuoc
+
+
+[MITM]
+
+hostname = %APPEND% chatgpt.com
+[Script]
+
+GPTV4=type=http-response,pattern=^https:\/\/chatgpt\.com\/backend-api\/accounts\/check\/v4-2023-04-27\?timezone_offset_min=-420$,script-path=https://raw.githubusercontent.com/ShopAccVanQuoc/jsvippro/main/gpt/gptv4.js,requires-body=1
+
+GPTMe=type=http-response,pattern=^https:\/\/chatgpt.com\/backend-api\/me$,script-path=https://raw.githubusercontent.com/ShopAccVanQuoc/jsvippro/main/gpt/gptme.js,requires-body=1
+
+GPTLimit=type=http-response,pattern=^https:\/\/chatgpt.com\/public-api\/conversation_limit$,script-path=https://raw.githubusercontent.com/ShopAccVanQuoc/jsvippro/main/gpt/gptlimit.js,requires-body=1
+
+GPTModel=type=http-response,pattern=^https:\/\/chatgpt.com\/backend-api\/models?history_and_training_disabled=false$,script-path=https://raw.githubusercontent.com/ShopAccVanQuoc/jsvippro/main/gpt/gptmodel.js,requires-body=1
+
+GPTUser=type=http-response,pattern=^https:\/\/chatgpt.com\/backend-api\/settings\/usere$,script-path=https://raw.githubusercontent.com/ShopAccVanQuoc/jsvippro/main/gpt/gptuser.js,requires-body=1
