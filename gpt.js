@@ -145,6 +145,6 @@ obj =
     "account_ordering": [
         "f6885355-edd2-4a02-b75e-aa1032238df2"
     ]
-}
+};
 
 $done({body: JSON.stringify(obj)});
